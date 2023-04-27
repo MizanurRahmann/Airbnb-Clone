@@ -1,13 +1,21 @@
 "use client";
 
+import { SafeUser } from "@/app/types";
 import { useState, useCallback } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+import { signOut } from "next-auth/react";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: SafeUser | null;
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
 
   const toggleOpen = useCallback(() => {
@@ -54,7 +62,7 @@ const UserMenu = () => {
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar src={null} />
+            <Avatar src={currentUser?.image} />
           </div>
         </div>
       </div>
@@ -75,10 +83,23 @@ const UserMenu = () => {
                         "
         >
           <div className="flex flex-col cursor-pointer">
-            <>
-              <MenuItem onClick={() => {}} label="Log in" />
-              <MenuItem onClick={registerModal.onOpen} label="Sign up" />
-            </>
+            {
+              currentUser ? (
+                <>
+                  <MenuItem onClick={() => {}} label="My Trips" />
+                  <MenuItem onClick={() => {}} label="My Favouties" />
+                  <MenuItem onClick={() => {}} label="My Reservations" />
+                  <MenuItem onClick={() => {}} label="My Properties" />
+                  <hr />
+                  <MenuItem onClick={() => signOut()} label="Sign Out" />
+                </>
+              ) : (
+                <>
+                  <MenuItem onClick={loginModal.onOpen} label="Log in" />
+                  <MenuItem onClick={registerModal.onOpen} label="Sign up" />
+                </>
+              )
+            }
           </div>
         </div>
       )}
