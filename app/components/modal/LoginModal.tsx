@@ -115,7 +115,7 @@ const LoginModal = () => {
           >
             <p>Don't have any account?
               <span 
-                onClick={loginModal.onClose} 
+                onClick={onToggle} 
                 className="
                   text-neutral-800
                   cursor-pointer 

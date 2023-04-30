@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* GLOBAL SCROLLBAR */
+::-webkit-scrollbar {
+  width: 0.435rem;
+  height: 0.435rem;
+}
+::-webkit-scrollbar-track {
+  background: #f2f2f2;
+  border-radius: 0.435rem;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.435rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Leaflet */
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+    z-index: 0 !important;
+}
