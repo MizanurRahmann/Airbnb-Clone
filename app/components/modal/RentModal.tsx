@@ -252,7 +252,7 @@ const RentModal = () => {
     );
   }
 
-  if (step === STEPS.DESCRIPTION) {
+  if (step === STEPS.PRICE) {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Header
