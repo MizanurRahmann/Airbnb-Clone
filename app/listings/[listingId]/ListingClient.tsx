@@ -8,7 +8,7 @@ import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
 import { Reservation } from "@prisma/client";
 import { categories } from "@/app/components/navbar/Categories";
-import { SafeListing, SafeUser } from "@/app/types";
+import { SafeListing, SafeUser, SafeReservation } from "@/app/types";
 import Container from "@/app/components/Container";
 import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
@@ -23,7 +23,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
   listing: SafeListing & {
     user: SafeUser;
   };
@@ -47,7 +47,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     setIsLoading(true);
 
     axios
-      .post(`/api/reservation`, {
+      .post(`/api/reservations`, {
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
