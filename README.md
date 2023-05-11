@@ -1,8 +1,8 @@
 ## Airbnb Clone
 
-![airbnb](https://github.com/MizanurRahmann/Airbnb-Clone/assets/37991614/b8df820e-0617-4d82-bdd3-f9bf9e4aa2b2)
+![airbnb-image](https://github.com/MizanurRahmann/Airbnb-Clone/assets/37991614/589545d5-c2d5-471e-8904-62c18b6f79a2)
 
-Airbnb clone which allows you to choose upload yout property, reserve for a trip and view your trips. Also an owner can view his reservations and delete them when he/she want. This application made with next auth that allows authentication using google and github account.
+Airbnb clone which allows you to upload your property, reserve for a trip and view your trips with proper cost. Also an owner can view and delete customer reservations whenever he/she want. This authentication part made with next-auth that allows user to authente using email & password or using google and github account.
 
 ### Featurus
 - Credential authentication
